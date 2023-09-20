@@ -1,0 +1,39 @@
+@startuml Template method
+hide empty members
+
+Abstract class AbstractClass{
+    TemplateMethod()
+    abstract operation1()
+    operation2()
+    virtual operation3()
+}
+note right of AbstractClass::TemplateMethod #lightblue
+...
+operation1();
+...
+operation2();
+...
+operation3();
+...
+endnote
+
+
+class ConcreteClassA{
+    operation1()
+    operation3()
+}
+
+class ConcreteClassB{
+    operation1()
+}
+
+class ConcreteClassN{
+    operation1()
+    operation3()
+
+}
+
+ConcreteClassA -up-|> AbstractClass
+ConcreteClassB -up-|> AbstractClass
+ConcreteClassN -up-|> AbstractClass
+@enduml

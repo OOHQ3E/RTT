@@ -1,0 +1,17 @@
+@startuml dip
+'üres mezők elrejtése
+hide empty members
+
+interface FelsoSzintService
+
+class AlsoSzintA
+class AlsoSzintB
+class AlsoSzintN
+class FelsoSzint
+
+FelsoSzint -right-> FelsoSzintService 
+AlsoSzintA -up-|>  FelsoSzintService 
+AlsoSzintB -up-|>  FelsoSzintService
+AlsoSzintN -up-|> FelsoSzintService
+ 
+@enduml

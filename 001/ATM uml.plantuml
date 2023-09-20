@@ -1,0 +1,80 @@
+@startuml ATM működés
+'----------
+'Stílus megadása
+'----------
+skinparam Style strictuml 
+'strict uml: a jelölések nincsenek duplázva az ábra alján
+skinparam SequenceMessageAlignment center
+'SequenceMessageAlignment : folyamatok leírásának elhelyezése
+'autonumber: automatikus számozás az interakcióknak
+autonumber
+'----------
+
+'Résztvevők megadása
+'----------
+'ilyenkor lehet aliast is megadni: "as [valmai]", hogy a kódban könnyebben meg lehessen különböztetni,
+'és, hogy későbbi névváltoztatáskor ne az egész kódot kelljen átnézni emiatt
+participant Ügyfél as customer 
+participant ATM as atm
+participant Fiók as account
+participant Bank as bank
+'----------
+
+'Interakciók megkezdése
+'----------
+customer -> atm : Bankártya behelyezése
+activate atm
+atm -> customer : PIN kérése
+deactivate atm
+
+activate customer
+customer -> atm : PIN bevitele
+deactivate customer
+activate atm
+
+atm -> account : PIN validálása
+deactivate atm
+activate account
+return <font color=green> PIN elfogadva
+deactivate account
+
+activate atm #green
+atm -> customer : Művelet kérése
+deactivate atm
+activate customer
+customer -> atm : Művelet kiválasztása
+deactivate customer
+
+activate atm
+atm -> customer : Mennyiség kérése
+deactivate atm
+activate customer
+customer -> atm : Mennyiség bevitele
+deactivate customer
+
+activate atm
+atm -> account : Tranzakció feldolgozása
+deactivate atm
+activate account
+account -> bank : Összeg levonása
+deactivate account
+activate bank
+return <font color=green> Sikeres levonás
+deactivate bank
+activate account #green
+
+account -[#green]-> atm : <font color=green> Sikeres tranzakció
+deactivate account
+activate atm
+atm -> customer : Készpénz kiadása
+activate customer
+atm -> customer : Készpénz elvétel kérése
+deactivate atm
+
+customer -[#green]> atm : <font color=green> Készpénz elvétele sikeres 
+deactivate customer
+activate atm #green
+return <font color=green> bizonylat kinyomtatása
+activate customer
+
+@enduml

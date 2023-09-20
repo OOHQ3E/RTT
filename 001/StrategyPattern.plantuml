@@ -1,0 +1,53 @@
+@startuml Strategy Pattern
+hide empty members
+
+interface iFlyStrategy{
+    Fly()
+}
+interface iWalkStrategy{
+    Walk()
+}
+
+class Duck{
+    Name()
+    Fly()
+    Walk()
+}
+
+
+class FastWalkStrategy{
+    Walk()
+}
+class SlowWalkStrategy{
+    Walk()
+}
+class WaddleStrategy{
+    Walk()
+}
+note left of WaddleStrategy::Walk #yellow
+  "And he waddled away... waddle waddle";
+endnote
+
+class HighFlyingStrategy{
+    Fly()
+}
+class LowFlyingStrategy{
+    Fly()
+}
+class NoFlyingStrategy{
+    Fly()
+}
+
+FastWalkStrategy -up-|> iWalkStrategy
+SlowWalkStrategy -up-|> iWalkStrategy
+WaddleStrategy -up-|> iWalkStrategy
+
+HighFlyingStrategy -up-|> iFlyStrategy
+LowFlyingStrategy -up-|> iFlyStrategy
+NoFlyingStrategy -up-|> iFlyStrategy
+
+Duck -down-> iFlyStrategy
+Duck -down-> iWalkStrategy
+
+
+@enduml

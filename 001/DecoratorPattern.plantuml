@@ -1,0 +1,23 @@
+@startuml DecoratorPattern
+hide empty members
+
+interface Component{
+    Description()
+}
+interface Decorator{
+    Description()
+}
+class ConcreteComponent{
+    Description()
+}
+class ConcreteDecorator{
+    Description()
+    <font color=green> return base.Description() + ...
+}
+Decorator -left-> Component
+Decorator -left-|> Component
+ConcreteComponent -up-|> Component
+ConcreteDecorator -up-|> Decorator
+
+
+@enduml
