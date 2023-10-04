@@ -16,7 +16,7 @@ nwdiag {
     address = "192.168.12.0/24";
     firewall [address="192.168.12.1"];
     fileserver [address="192.168.12.2"];
-    dbserver [ address="192.168.12.2, shape = database ]
+    dbserver2 [ address="192.168.12.2, shape = database ]
     client1 [address="192.168.12.10"];
     client2 [address="192.168.12.11"];
     client3 [address="192.168.12.12"];
