@@ -1,0 +1,34 @@
+@startuml smarthome
+!theme vibrant
+cloud "{}API" as api #lightblue
+actor Felhasználó
+node nodeMCU
+entity Szenzor
+entity "RFID olvasó" as rfid
+entity Eszköz
+
+frame WebSzerver#lightgrey;line.dashed{
+node RaspberryPi
+node Laravel #red
+database MySQL #lightblue
+}
+WebSzerver -down-> Felhasználó: adat megjelenítés
+Felhasználó -> WebSzerver : adat lekérés
+
+WebSzerver -up-> api : JSON response a Laravel controllerből
+api -right-> WebSzerver  : status
+
+nodeMCU -up-> api : HTTP POST request
+api -down-> nodeMCU : response status
+
+nodeMCU -up-> WebSzerver : adat küldése
+
+Szenzor -up-> nodeMCU : adat küldés
+rfid -up-> nodeMCU : adat küldés
+nodeMCU -down-> Eszköz  : KI / BE
+
+RaspberryPi -down-> Laravel
+Laravel -up-> RaspberryPi
+Laravel -down-> MySQL
+MySQL -up-> Laravel
+@enduml

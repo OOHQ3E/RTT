@@ -1,0 +1,38 @@
+@startuml roomba diagram
+start
+:Bekapcsolás;
+:Környezet szkennelése;
+:Térkép generálása a helyről;
+:Útvonal tervezése;
+:Porszívó elindulása;
+while (Útvonal követése) 
+
+if(Útvonal befejezve?) then (igen)
+    :Porszívó kikapcsolása;
+    label kikapcsol
+    :Visszatérés a töltő állomásra;
+    label lab1
+    label lab2
+    label lab3
+    label off
+    :Kikapcsolás;
+    stop
+else (nem)
+    if (Akkumltátor alacsony?) then (igen)
+        label lab4
+        goto kikapcsol
+    else (nem)
+        if (Porzsák tele?) then (igen)
+            :Porszívó kikapcsolása;
+            :Mozgás leállítása;
+            :Jelzés teli porzsákról;
+            goto off
+        else (nem)
+            
+        
+        endif
+    endif
+endif
+endwhile
+stop
+@enduml

@@ -1,0 +1,27 @@
+@startuml network diagram
+nwdiag {
+  network internet {
+    firewall [address="dhcp"];
+    color = "red"
+  }
+  network dmz {
+    address = "192.168.10.0/24";
+    firewall [address="192.168.10.1"];
+    webserver [address="192.168.10.2"];
+    vpnserver [address="192.168.10.3"];
+    dbserver [ address="192.168.10.2, shape = database ]
+    color = "yellow"
+  }
+  network internal {
+    address = "192.168.12.0/24";
+    firewall [address="192.168.12.1"];
+    fileserver [address="192.168.12.2"];
+    dbserver [ address="192.168.12.2, shape = database ]
+    client1 [address="192.168.12.10"];
+    client2 [address="192.168.12.11"];
+    client3 [address="192.168.12.12"];
+    client4 [address="192.168.12.13"];
+    color = "green"
+  }
+}
+@enduml

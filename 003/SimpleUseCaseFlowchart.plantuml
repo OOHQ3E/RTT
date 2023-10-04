@@ -1,0 +1,20 @@
+@startuml simple use case flowchart
+
+start
+
+if () then (yes)
+    :;
+fork
+  :;
+fork again
+  :;
+end fork
+
+else (no)
+
+endif
+:;
+
+stop
+
+@enduml
