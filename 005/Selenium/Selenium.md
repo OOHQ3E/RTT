@@ -1,4 +1,4 @@
-#Selenium web tesztelés
+# Selenium web tesztelés
 
 ## ~~Chrome drive letöltése és telepítése~~
 
@@ -6,7 +6,7 @@
 
 * ~~Chrome-ot igényel, aminek a verzióját az alábbiak alapján találhatod meg:~~
   
-~~![Chrome](https://github.com/OOHQ3E/RTT_guide/blob/master/005/Selenium/chrome%20version.bmp)~~
+~~![Chrome](https://github.com/OOHQ3E/RTT/blob/main/005/Selenium/chrome%20version.bmp)~~
 
 ~~Mivel nekem 118-as verzó van jelenleg, ami nincs a fenti oldal listájában, ezért az alábbi oldalról lehet ezt letölteni: <https://googlechromelabs.github.io/chrome-for-testing/#stable>~~
 
