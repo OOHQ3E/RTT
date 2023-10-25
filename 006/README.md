@@ -1,0 +1,17 @@
+# Konténerizáció
+
+A virtuális gépek nagyszerű lehetőséget biztosítanak arra, hogy egy fizikai hardveren különböző gépekre válasszuk szét az egyes szoftver rendszereket. Ideális pl. a Neptun számára, mely így önálló operációs rendszeren futhat és annak teljes működését a Neptun igényei szerint lehet beállítani. A virtualizáció során számos példát láthattál annak alkalmazására, a régi rendszerek archiválásától az időkiszolgáló szerverig. A virtuális gépeket másnéven szerver szintű virtzualizációként is szokták említeni, mivel a virtualizáció tárgya esetükben a teljes operációs rendszer. Kis alkalmazások számára viszont nem célszerű ezt a megoldást választani, hiszen minden virtuális gép igényel egy alap infrastruktúrát, szükségszerűen futtatja a rendszermagot és tartalmaz számos, az operációs rendszerhaz tartozó egyéb szoftvert a rendszerkönyvtáraktól a beépített alap alkalmazásokig. Csupán egy webszervizen alapuló API működtetésére ez a megoldás tehát rendkívül pazarló lenne, ezért az ilyen feladatokhoz operációs rendszer szintű virtualizációt szokás alkalmazni, melynek egyik legismertebb (de nem az egyetlen) változata a Docker. A konténerizáció során az alkalmazott operációs rendszer közös, és abban csak mikroszervizek futnak, melyek tipikusan tartalmazzák az alkalmazást és annak futtató környezetét is. Egy webalkalmazás esetén például a webszervert, az ehhez az alaklmazáshoz tartozó adatbázis-szervert és pl. a php értelmezőt is. Ebben a kontextusban a virtualizált környezeteket konténereknek nevezzük, ezek egymástól teljesen elválasztva futnak, de egymással együttműködő konténer csoportok is létrehozhatók, melyek saját belső névtérrel is rendelkeznek.
+
+![Konténer](https://github.com/OOHQ3E/RTT_guide/blob/master/006/container-vs-virtual-machine.png)
+
+A konténerizáció alkalmazása számos más előnyt hoz. Amellett, hogy a kis alkalmazások felhőszolgáltatásokban (AWS, Google Cloud stb.) történő futtatásának tipikus technológiája, erre alapozva egyszerűen lehet ún. hibatűrő (HA - High Availability) rendszereket is felépíteni. Egy ilyen esetén a konténerek több példányban, több szerveren működnek, így az egyik kiesése esetén a teljes rendszer még képes ellátni a feladatát. Újabb előnyt jelent, hogy a konténerekben alkalmazott szoftverek verziója állandó, így elkerülhetők a fejlesztés és a publikált végtermék futtató környezetének különbségei - a fejlesztés során alkalmazott környezet a konténerbe lesz “becsomagolva”, így az pontosan meg fog egyezni a végleges változatban alkalmazottal.
+
+## A Docker
+
+A Docker az egyik legnépszerűbb konténerizációs rendszer, melynek alapját a Linux kernelben már régóta jelen levő konténerizációs képesség adja. A Docker a legelterjedtebb szoftver, amely erre alapulva egy modern, kényelmes környezetet nyújt a fejlesztők és az üzemeltetők számára Windowson, MacOS-en és Linuxon is. Maga a szoftver ingyenes, de a grafikus felület kezelőszoftveréért, a Docker Desktopért egy bizonyos éves árbevétel felett fizetni kell.
+
+Le kell töltenünk és telepítenünk a WSL (Windows Subsystem Linux) 2-t is, azt ezen az oldalon nézhetitek meg, hogy hogyan kell: <https://learn.microsoft.com/hu-hu/windows/wsl/install-manual>
+
+Ahhoz egy Ubuntu disztribúciót is: <https://apps.microsoft.com/detail/9N6SVWS3RX71?hl=de-at&gl=AT>
+
+Ha még nincs, töltsük le a Docker Desktopot az alábbi oldalról: <https://www.docker.com/products/docker-desktop/>
